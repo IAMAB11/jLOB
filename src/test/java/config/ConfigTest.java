@@ -24,7 +24,7 @@ public class ConfigTest {
     }
 
     @Test
-    public void testEnvironmentKeysAreImmutable() {
+    public void testEnvironmentKeysAreConsistent() {
         List<String> keys1 = Config.getSupportedEnvironmentKeys();
         List<String> keys2 = Config.getSupportedEnvironmentKeys();
         

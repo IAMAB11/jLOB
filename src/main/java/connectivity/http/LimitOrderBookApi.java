@@ -60,6 +60,7 @@ public class LimitOrderBookApi {
     };
 
     public Route getEnvironmentKeys = (request, response) -> {
+        response.type("application/json");
         return gson.toJson(Map.of("supportedKeys", Config.getSupportedEnvironmentKeys()));
     };
 
