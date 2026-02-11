@@ -39,7 +39,7 @@ Timestamp: 2026-02-11T05:48:32.355814
 🔍 Checking Lbank API connectivity...
    Testing public endpoint: https://api.lbkex.com/v2/timestamp.do
 ✅ Successfully connected to Lbank API
-   Server timestamp: {'timestamp': '1707629312355', 'timezone': 'GMT+08:00'}
+   Server timestamp: {'timestamp': '1739239712355', 'timezone': 'GMT+08:00'}
 
 📊 Fetching available currency pairs...
 ✅ Found 200+ available trading pairs
