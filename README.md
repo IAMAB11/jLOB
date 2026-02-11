@@ -97,9 +97,11 @@ To set up a deployment remote repository for managing deployment artifacts:
 ```
 
 This script will:
-- Add a `deployment` remote pointing to the deployment repository
+- Add a `deployment` remote pointing to the deployment repository (https://github.com/IAMAB11/Deployment)
 - Display current remotes
 - Provide instructions for building and pushing to the deployment repository
+
+**Note**: The remote is named `deployment` to avoid conflicts with the existing `origin` remote that points to this repository.
 
 Alternatively, you can manually add the deployment remote:
 

@@ -2,6 +2,8 @@
 
 # Deployment script for jLOB application
 # This script sets up deployment remote and pushes artifacts to deployment repository
+#
+# Note: Uses 'deployment' as remote name to avoid conflicts with existing 'origin' remote
 
 set -e
 
