@@ -88,6 +88,28 @@ The application supports the following environment variables for configuration:
 
 These can be customized in the `docker-compose.yml` file or passed at runtime.
 
+#### Deployment Remote Setup
+
+To set up a deployment remote repository for managing deployment artifacts:
+
+```bash
+./deploy.sh
+```
+
+This script will:
+- Add a `deployment` remote pointing to the deployment repository (git@github.com:IAMAB11/Deployment.git)
+- Display current remotes
+- Provide instructions for building and pushing to the deployment repository
+
+**Note**: The remote is named `deployment` to avoid conflicts with the existing `origin` remote that points to this repository.
+
+Alternatively, you can manually add the deployment remote:
+
+```bash
+git remote add deployment git@github.com:IAMAB11/Deployment.git
+git remote -v
+```
+
 Import `jLOB.postman_collection.json` into [Postman](https://www.getpostman.com/) to start exploring the API.
 
 _jLOB_ supports the following endpoints:
