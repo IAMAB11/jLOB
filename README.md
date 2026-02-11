@@ -44,7 +44,13 @@ It will then start HTTP and FIX servers on `http://127.0.0.1:4567` and `tcp://12
 
 #### Docker Deployment
 
-The repository includes Docker support for easy deployment. You can deploy the entire stack (application, PostgreSQL, and Redis) using Docker Compose:
+The repository includes Docker support for easy deployment. Before deploying with Docker, you need to build the application JAR locally:
+
+```bash
+gradle bookJar -x test -x generateJLobJooqSchemaSource
+```
+
+Then, deploy the entire stack (application, PostgreSQL, and Redis) using Docker Compose:
 
 ```bash
 docker-compose up -d

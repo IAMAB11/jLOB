@@ -1,20 +1,13 @@
-# Build stage
-FROM gradle:7.6-jdk11 AS build
+# Multi-stage build approach
+# Build locally with: gradle bookJar -x test -x generateJLobJooqSchemaSource
+# Then build the Docker image
+
+FROM eclipse-temurin:11-jre
 WORKDIR /app
 
-# Copy gradle and source files
-COPY build.gradle .
-COPY src src
-
-# Build the JAR (skip tests and JOOQ generation for now as they require DB)
-RUN gradle bookJar -x test -x generateJLobJooqSchemaSource
-
-# Run stage
-FROM openjdk:11-jre-slim
-WORKDIR /app
-
-# Copy the built JAR
-COPY --from=build /app/build/book.jar ./book.jar
+# Copy the pre-built JAR from build directory
+# Assumes the JAR was built locally before docker build
+COPY build/book.jar ./book.jar
 
 # Copy configuration and resources
 COPY src/main/resources ./resources
