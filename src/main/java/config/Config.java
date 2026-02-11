@@ -14,6 +14,7 @@ public class Config {
 
     public DatabaseConfig database;
     public RedisConfig redis;
+    public LbankConfig lbank;
 
     public static Config fromPath(String path) throws IOException {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
@@ -49,6 +50,12 @@ public class Config {
                 throw new IllegalArgumentException("Invalid REDIS_PORT environment variable: must be a valid integer", e);
             }
         }
+        if (System.getenv("LBANK_API_KEY") != null) {
+            if (config.lbank == null) {
+                config.lbank = new LbankConfig();
+            }
+            config.lbank.setApiKey(System.getenv("LBANK_API_KEY"));
+        }
         
         return config;
     }
@@ -59,6 +66,10 @@ public class Config {
 
     public RedisConfig getRedisConfig() {
         return redis;
+    }
+
+    public LbankConfig getLbankConfig() {
+        return lbank;
     }
 }
 

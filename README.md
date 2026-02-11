@@ -85,6 +85,7 @@ The application supports the following environment variables for configuration:
 - `DB_PASSWORD` - Database password (default: postgres)
 - `REDIS_HOST` - Redis host (default: localhost)
 - `REDIS_PORT` - Redis port (default: 6379)
+- `LBANK_API_KEY` - Lbank API key for exchange connectivity (optional)
 
 These can be customized in the `docker-compose.yml` file or passed at runtime.
 
@@ -109,6 +110,37 @@ Alternatively, you can manually add the deployment remote:
 git remote add deployment git@github.com:IAMAB11/Deployment.git
 git remote -v
 ```
+
+### Lbank API Connectivity
+
+The repository includes a Python script to verify connectivity to the Lbank exchange API.
+
+#### Prerequisites
+
+Install Python dependencies:
+
+```bash
+pip install -r quantum-hft-enterprise/examples/requirements.txt
+```
+
+#### Running the Connectivity Check
+
+Set your Lbank API key and run the connectivity check script:
+
+```bash
+export LBANK_API_KEY=your-api-key-here
+python quantum-hft-enterprise/examples/lbank_connectivity_check.py
+```
+
+The script will:
+- Validate the LBANK_API_KEY environment variable is set
+- Check connectivity to Lbank public API endpoints
+- Retrieve available trading pairs
+- Fetch sample ticker information
+
+**Note**: The connectivity check uses public Lbank API endpoints that don't require authentication. For authenticated endpoints, additional configuration may be needed.
+
+### API Endpoints
 
 Import `jLOB.postman_collection.json` into [Postman](https://www.getpostman.com/) to start exploring the API.
 
