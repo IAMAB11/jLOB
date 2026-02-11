@@ -34,7 +34,7 @@ python lbank_connectivity_check.py
 Lbank API Connectivity Check
 ============================================================
 Timestamp: 2026-02-11T05:48:32.355814
-✅ LBANK_API_KEY is set: 59791b0d...1baa2358
+✅ LBANK_API_KEY is set: ********
 
 🔍 Checking Lbank API connectivity...
    Testing public endpoint: https://api.lbkex.com/v2/timestamp.do
