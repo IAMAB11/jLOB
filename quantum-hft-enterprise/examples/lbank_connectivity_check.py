@@ -29,7 +29,7 @@ def check_environment_variable():
         print("Please set it using: export LBANK_API_KEY=your-api-key-here")
         return None
     
-    print(f"✅ LBANK_API_KEY is set: {api_key[:8]}...{api_key[-8:]}")
+    print(f"✅ LBANK_API_KEY is set: ********")
     return api_key
 
 
