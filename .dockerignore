@@ -1,0 +1,12 @@
+.git
+.gradle
+build/classes
+build/generated
+build/libs
+build/reports
+build/test-results
+build/tmp
+.idea
+*.iml
+*.log
+*.class

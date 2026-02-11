@@ -33,12 +33,60 @@ Reference FIX server and FIX client configurations are provided in `fix.server.c
 
 ### Quickstart
 
+#### Local Development
+
 To start the service:
 
 `gradle runBook`
 
 The task will create needed JOOQ classes and run DB migrations, creating needed tables.
 It will then start HTTP and FIX servers on `http://127.0.0.1:4567` and `tcp://127.0.0.1:9877`.
+
+#### Docker Deployment
+
+The repository includes Docker support for easy deployment. Before deploying with Docker, you need to build the application JAR locally:
+
+```bash
+gradle bookJar -x test -x generateJLobJooqSchemaSource
+```
+
+Then, deploy the entire stack (application, PostgreSQL, and Redis) using Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+This will:
+- Build the application Docker image
+- Start PostgreSQL database on port 5432
+- Start Redis cache on port 6379
+- Start the jLOB application on ports 4567 (HTTP) and 9877 (FIX)
+
+**⚠️ Security Note**: The default `docker-compose.yml` uses insecure default passwords for local development. For production deployments, change all passwords and consider using Docker secrets or environment-specific configuration files.
+
+To view logs:
+```bash
+docker-compose logs -f jlob
+```
+
+To stop the services:
+```bash
+docker-compose down
+```
+
+##### Environment Variables
+
+The application supports the following environment variables for configuration:
+
+- `DB_HOST` - Database host (default: localhost)
+- `DB_NAME` - Database name (default: jlob)
+- `DB_PORT` - Database port (default: 5432)
+- `DB_USER` - Database username (default: postgres)
+- `DB_PASSWORD` - Database password (default: postgres)
+- `REDIS_HOST` - Redis host (default: localhost)
+- `REDIS_PORT` - Redis port (default: 6379)
+
+These can be customized in the `docker-compose.yml` file or passed at runtime.
 
 Import `jLOB.postman_collection.json` into [Postman](https://www.getpostman.com/) to start exploring the API.
 
