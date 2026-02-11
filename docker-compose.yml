@@ -1,6 +1,5 @@
 # Docker Compose configuration for jLOB deployment
 # Before running, build the JAR with: gradle bookJar -x test -x generateJLobJooqSchemaSource
-version: '3.8'
 
 services:
   postgres:
