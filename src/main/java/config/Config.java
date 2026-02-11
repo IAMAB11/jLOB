@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 @Setter
 @NoArgsConstructor
@@ -59,6 +61,18 @@ public class Config {
 
     public RedisConfig getRedisConfig() {
         return redis;
+    }
+
+    public static List<String> getSupportedEnvironmentKeys() {
+        return Arrays.asList(
+            "DB_HOST",
+            "DB_NAME",
+            "DB_PORT",
+            "DB_USER",
+            "DB_PASSWORD",
+            "REDIS_HOST",
+            "REDIS_PORT"
+        );
     }
 }
 

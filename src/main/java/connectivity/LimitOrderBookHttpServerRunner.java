@@ -39,6 +39,7 @@ public class LimitOrderBookHttpServerRunner implements ServerRunner {
             put(ORIGIN, limitOrderBookApi.reduceOrder);
         });
         post("vwap", limitOrderBookApi.getVwap);
+        get("environment/keys", limitOrderBookApi.getEnvironmentKeys);
         exception(Exception.class, limitOrderBookApi.handleException);
     }
 }

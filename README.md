@@ -236,3 +236,23 @@ _Example Response:_
     "price": 100.00
 }
 ```
+
+`GET /environment/keys`
+
+Retrieves the list of supported environment variables that can be used to configure the application.
+
+_Example Response:_
+
+```
+{
+    "supportedKeys": [
+        "DB_HOST",
+        "DB_NAME",
+        "DB_PORT",
+        "DB_USER",
+        "DB_PASSWORD",
+        "REDIS_HOST",
+        "REDIS_PORT"
+    ]
+}
+```
