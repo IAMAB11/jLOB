@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.inject.Inject;
+import config.Config;
 import dto.Cancellation;
 import dto.Placement;
 import dto.Side;
@@ -56,6 +57,10 @@ public class LimitOrderBookApi {
         BigDecimal price = side == Side.BID ? limitOrderBook.getAveragePurchasePrice(size) :
                 limitOrderBook.getAverageSalePrice(size);
         return gson.toJson(Map.of("price", price));
+    };
+
+    public Route getEnvironmentKeys = (request, response) -> {
+        return gson.toJson(Map.of("supportedKeys", Config.getSupportedEnvironmentKeys()));
     };
 
     public ExceptionHandler<Exception> handleException = (exception, request, response) -> {
