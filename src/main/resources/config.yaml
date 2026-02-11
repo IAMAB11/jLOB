@@ -1,9 +1,13 @@
+# Default configuration for jLOB
+# WARNING: These are insecure defaults for local development only.
+# Change these values for production deployments!
+
 database:
   host: localhost
   name: jlob
   port: 5432
   username: postgres
-  password: postgres
+  password: postgres  # CHANGE THIS IN PRODUCTION!
 
 redis:
   host: localhost

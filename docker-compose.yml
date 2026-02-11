@@ -1,5 +1,11 @@
 # Docker Compose configuration for jLOB deployment
 # Before running, build the JAR with: gradle bookJar -x test -x generateJLobJooqSchemaSource
+#
+# WARNING: This configuration uses insecure default passwords for local development.
+# For production deployments:
+# - Change all passwords
+# - Consider using Docker secrets for sensitive data
+# - Use environment-specific configuration files
 
 services:
   postgres:
@@ -8,7 +14,7 @@ services:
     environment:
       POSTGRES_DB: jlob
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: postgres  # CHANGE THIS IN PRODUCTION!
     ports:
       - "5432:5432"
     volumes:
@@ -48,7 +54,7 @@ services:
       - DB_PORT=5432
       - DB_NAME=jlob
       - DB_USER=postgres
-      - DB_PASSWORD=postgres
+      - DB_PASSWORD=postgres  # CHANGE THIS IN PRODUCTION!
       - REDIS_HOST=redis
       - REDIS_PORT=6379
 

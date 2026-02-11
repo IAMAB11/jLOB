@@ -62,6 +62,8 @@ This will:
 - Start Redis cache on port 6379
 - Start the jLOB application on ports 4567 (HTTP) and 9877 (FIX)
 
+**⚠️ Security Note**: The default `docker-compose.yml` uses insecure default passwords for local development. For production deployments, change all passwords and consider using Docker secrets or environment-specific configuration files.
+
 To view logs:
 ```bash
 docker-compose logs -f jlob
