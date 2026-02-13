@@ -117,7 +117,9 @@ To integrate jLOB as a data source submodule in the Deployment repository, use t
 
 ```bash
 # From within the Deployment repository
-curl -sSL https://raw.githubusercontent.com/IAMAB11/jLOB/main/add-to-deployment.sh | bash
+curl -sSL https://raw.githubusercontent.com/IAMAB11/jLOB/main/add-to-deployment.sh -o add-to-deployment.sh
+chmod +x add-to-deployment.sh
+./add-to-deployment.sh
 ```
 
 Or manually:
