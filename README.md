@@ -111,6 +111,46 @@ git remote add deployment git@github.com:IAMAB11/Deployment.git
 git remote -v
 ```
 
+#### Adding jLOB as a Submodule to Deployment Repository
+
+To integrate jLOB as a data source submodule in the Deployment repository, use the provided script:
+
+```bash
+# From within the Deployment repository
+curl -sSL https://raw.githubusercontent.com/IAMAB11/jLOB/main/add-to-deployment.sh | bash
+```
+
+Or manually:
+
+1. Clone or navigate to the Deployment repository:
+```bash
+git clone git@github.com:IAMAB11/Deployment.git
+cd Deployment
+```
+
+2. Add jLOB as a submodule:
+```bash
+git submodule add https://github.com/IAMAB11/jLOB.git data-sources/jLOB
+git submodule update --init --recursive
+```
+
+3. Commit and push the changes:
+```bash
+git add .gitmodules data-sources/jLOB
+git commit -m "Add jLOB as a submodule data source"
+git push origin main
+```
+
+To update the jLOB submodule in the future:
+```bash
+cd data-sources/jLOB
+git pull origin main
+cd ../..
+git add data-sources/jLOB
+git commit -m "Update jLOB submodule"
+git push origin main
+```
+
 ### Lbank API Connectivity
 
 The repository includes a Python script to verify connectivity to the Lbank exchange API.
