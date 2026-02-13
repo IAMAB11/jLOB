@@ -117,7 +117,7 @@ To integrate jLOB as a data source submodule in the Deployment repository, use t
 
 ```bash
 # From within the Deployment repository
-curl -sSL https://raw.githubusercontent.com/IAMAB11/jLOB/main/add-to-deployment.sh -o add-to-deployment.sh
+curl -sSL https://raw.githubusercontent.com/IAMAB11/jLOB/master/add-to-deployment.sh -o add-to-deployment.sh
 chmod +x add-to-deployment.sh
 ./add-to-deployment.sh
 ```
@@ -140,17 +140,17 @@ git submodule update --init --recursive
 ```bash
 git add .gitmodules data-sources/jLOB
 git commit -m "Add jLOB as a submodule data source"
-git push origin main
+git push origin master
 ```
 
 To update the jLOB submodule in the future:
 ```bash
 cd data-sources/jLOB
-git pull origin main
+git pull origin master
 cd ../..
 git add data-sources/jLOB
 git commit -m "Update jLOB submodule"
-git push origin main
+git push origin master
 ```
 
 ### Lbank API Connectivity

@@ -7,7 +7,7 @@
 #   1. Clone the Deployment repository: git clone git@github.com:IAMAB11/Deployment.git
 #   2. Navigate to the Deployment repository: cd Deployment
 #   3. Download and run this script:
-#      curl -sSL https://raw.githubusercontent.com/IAMAB11/jLOB/main/add-to-deployment.sh -o add-to-deployment.sh
+#      curl -sSL https://raw.githubusercontent.com/IAMAB11/jLOB/master/add-to-deployment.sh -o add-to-deployment.sh
 #      chmod +x add-to-deployment.sh
 #      ./add-to-deployment.sh
 #
@@ -68,12 +68,12 @@ echo "     git add .gitmodules $SUBMODULE_PATH"
 echo "     git commit -m 'Add jLOB as a submodule data source'"
 echo ""
 echo "  2. Push to the repository:"
-echo "     git push origin main"
+echo "     git push origin master"
 echo ""
 echo "To update the submodule in the future:"
 echo "  cd $SUBMODULE_PATH"
-echo "  git pull origin main"
+echo "  git pull origin master"
 echo "  cd ../.."
 echo "  git add $SUBMODULE_PATH"
 echo "  git commit -m 'Update jLOB submodule'"
-echo "  git push origin main"
+echo "  git push origin master"
