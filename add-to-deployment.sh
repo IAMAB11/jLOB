@@ -77,4 +77,3 @@ echo "  cd ../.."
 echo "  git add $SUBMODULE_PATH"
 echo "  git commit -m 'Update jLOB submodule'"
 echo "  git push origin main"
-
