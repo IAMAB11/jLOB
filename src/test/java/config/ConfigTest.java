@@ -29,5 +29,23 @@ public class ConfigTest {
         List<String> keys2 = Config.getSupportedEnvironmentKeys();
         
         assertEquals(keys1, keys2);
+        // Verify they are the same instance (since it's a static final)
+        assertSame(keys1, keys2);
+    }
+
+    @Test
+    public void testEnvironmentKeysAreImmutable() {
+        List<String> keys = Config.getSupportedEnvironmentKeys();
+        
+        // Verify that the list is immutable by attempting to modify it
+        assertThrows(UnsupportedOperationException.class, () -> {
+            keys.add("NEW_KEY");
+        });
+        assertThrows(UnsupportedOperationException.class, () -> {
+            keys.remove(0);
+        });
+        assertThrows(UnsupportedOperationException.class, () -> {
+            keys.clear();
+        });
     }
 }
